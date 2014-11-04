@@ -323,58 +323,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/home/unnar/catkin_ws/src/s8_ip/src/object_recognition.cpp",
-			"settings":
-			{
-				"buffer_size": 14799,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/unnar/PCL/planeSegmentation/planar_segmentation.cpp",
-			"settings":
-			{
-				"buffer_size": 3150,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/unnar/PCL/matrixTransform/matrix_transform.cpp",
-			"settings":
-			{
-				"buffer_size": 7628,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/object_detector.cpp",
-			"settings":
-			{
-				"buffer_size": 11149,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Hello\n\nI am currently signned up for the course Sensor Based Systems (II2302) but wan´t to change that to \nArtificial Neural Networks and other learning Systems (DD2432).\nIs that Possible?\n\nBest regards\nUnnar Þór Axelsson\n900508-T170",
-			"settings":
-			{
-				"buffer_size": 233,
-				"line_ending": "Unix",
-				"name": "Hello"
-			}
-		},
-		{
-			"contents": "<?xml version=\"1.0\"?>\n<package>\n  <name>s8_ip_detection </name>\n  <version>0.0.0</version>\n  <description>Robotics image processing package</description>\n  <maintainer email=\"unnar@kth.se\">unnar</maintainer>\n  <license>BSD</license>\n  <buildtool_depend>catkin</buildtool_depend>\n  <build_depend>sensor_msgs</build_depend>\n  <build_depend>roscpp</build_depend>\n  <run_depend>sensor_msgs</run_depend>\n  <run_depend>roscpp</run_depend>\n  <build_depend>cv_bridge</build_depend>\n  <run_depend>cv_bridge</run_depend>\n  <build_depend>std_msgs</build_depend>\n  <run_depend>std_msgs</run_depend>\n  <build_depend>image_transport</build_depend>\n  <run_depend>image_transport</run_depend>\n  <run_depend>message_runtime</run_depend>\n  <build_depend>libpcl-all-dev</build_depend>\n  <run_depend>libpcl-all</run_depend>\n  <build_depend>pcl_conversions</build_depend>\n  <run_depend>pcl_conversions</run_depend>\n  <run_depend>pcl_ros</run_depend>\n  <build_depend>pcl_ros</build_depend>\n  <run_depend>s8_common_node</run_depend>\n  <build_depend>s8_common_node</build_depend>\n</package>",
-			"file": "package.xml",
-			"file_size": 1065,
-			"file_write_time": 130589132618465310,
-			"settings":
-			{
-				"buffer_size": 1066,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Packages/C++/C++.sublime-build",
 	"command_palette":
@@ -484,13 +432,21 @@
 	},
 	"expanded_folders":
 	[
-		"/home/unnar/catkin_ws/src/s8_ip_detection",
-		"/home/unnar/catkin_ws/src/s8_ip_detection/src",
+		"/home/unnar/catkin_ws/src/s8_ip_classification",
+		"/home/unnar/catkin_ws/src/s8_ip_classification/src",
 		"/home/unnar/catkin_ws/src/s8_ip",
-		"/home/unnar/catkin_ws/src/s8_ip/src"
+		"/home/unnar/catkin_ws/src/s8_ip/src",
+		"/home/unnar/catkin_ws/src/s8_ip_detection"
 	],
 	"file_history":
 	[
+		"/home/unnar/catkin_ws/src/s8_ip_classification/src/object_detector.cpp",
+		"/home/unnar/catkin_ws/src/s8_ip_classification/s8_ip_classification.sublime-project",
+		"/home/unnar/catkin_ws/src/s8_ip/src/object_recognition.cpp",
+		"/home/unnar/PCL/planeSegmentation/planar_segmentation.cpp",
+		"/home/unnar/PCL/matrixTransform/matrix_transform.cpp",
+		"/home/unnar/catkin_ws/src/s8_ip_classification/CMakeLists.txt",
+		"/home/unnar/catkin_ws/src/s8_ip_classification/package.xml",
 		"/home/unnar/Desktop/internet.sh",
 		"/media/Data/Downloads/amc.sh",
 		"/media/Data/Downloads/transmission-postprocess-manual.sh",
@@ -500,10 +456,7 @@
 		"/home/unnar/catkin_ws/src/s8_ip_detection/s8_ip_detection.sublime-project",
 		"/home/unnar/PCL/correspondence_grouping.cpp",
 		"/home/unnar/PCL/ProjectPoints/plane_inliers.cpp",
-		"/home/unnar/PCL/matrixTransform/matrix_transform.cpp",
-		"/home/unnar/PCL/planeSegmentation/planar_segmentation.cpp",
 		"/home/unnar/PCL/matrixTransform/CMakeLists.txt",
-		"/home/unnar/catkin_ws/src/s8_ip/src/object_recognition.cpp",
 		"/home/unnar/PCL/planeSegmentation/CMakeLists.txt",
 		"/home/unnar/PCL/ProjectPoints/sphere_inliers.cpp",
 		"/home/unnar/PCL/ProjectPoints/project_inliers.cpp",
@@ -640,183 +593,8 @@
 	"groups":
 	[
 		{
-			"selected": 4,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/home/unnar/catkin_ws/src/s8_ip/src/object_recognition.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14799,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12829,
-								12829
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 6954.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/unnar/PCL/planeSegmentation/planar_segmentation.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3150,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1227,
-								1227
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 855.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/unnar/PCL/matrixTransform/matrix_transform.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7628,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								135,
-								135
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/object_detector.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11149,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3214,
-								3214
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 31.0,
-						"translation.y": 1634.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 233,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								190,
-								190
-							]
-						],
-						"settings":
-						{
-							"auto_name": "Hello",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "package.xml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1066,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								56,
-								56
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				}
 			]
 		}
 	],
