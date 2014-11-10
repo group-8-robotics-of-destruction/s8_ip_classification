@@ -69,14 +69,24 @@ private:
 		uint8_t G_high = 0;
 		uint8_t B_low = 255;
 		uint8_t B_high = 0;
+        double R_avg = 0;
+        double G_avg = 0;
+        double B_avg = 0;
+        double R_acc = 0;
+        double G_acc = 0;
+        double B_acc = 0;
 		for(int iter = 0; iter != cloud_color->points.size(); ++iter)
 		{
 		    //Whatever you want to do with the points
-		    uint8_t R = cloud_color->points[0].r;
-		    uint8_t G = cloud_color->points[0].g;
-		    uint8_t B = cloud_color->points[0].b;
-		    if (R_low > R)
-		    	R_low = R;
+            uint8_t R = cloud_color->points[iter].r;
+            uint8_t G = cloud_color->points[iter].g;
+            uint8_t B = cloud_color->points[iter].b;
+            ROS_INFO("R:, %d G: %d B: %d iter, %d", R, G, B, iter);
+            R_acc += R;
+            G_acc += G;
+            B_acc += B;
+/*            if (R_low > R)
+                R_low = R;
 		    if (R_high < R)
 		    	R_high = R;
 		    if (G_low > G)
@@ -86,9 +96,14 @@ private:
 		    if (B_low > B)
 		    	B_low = B;
 		    if (B_high < B)
-		    	B_high = B;
+                B_high = B;*/
 		}
-		ROS_INFO("R_low: %d R_high: %d G_low: %d G_high: %d B_low: %d B_high: %d", R_low, R_high, G_low, R_high, B_low, B_high);
+        //ROS_INFO("R_low: %d R_high: %d G_low: %d G_high: %d B_low: %d B_high: %d", R_low, R_high, G_low, R_high, B_low, B_high);
+        int size = cloud_color->points.size();
+        R_avg =R_acc / size;
+        G_avg =G_acc / size;
+        B_avg =B_acc / size;
+        ROS_INFO("R_avg: %lf G_avg: %lf B_avg: %lf R_acc: %lf G_acc: %lf B_acc: %lf cloud_size: %d", R_avg, G_avg, B_avg, R_acc, G_acc, B_acc, size);
 	}
 
 	void point_cloud_callback(const sensor_msgs::PointCloud2ConstPtr& cloud_msg)
