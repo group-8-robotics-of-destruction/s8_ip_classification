@@ -121,8 +121,13 @@ private:
             ROS_INFO("GREEN");
         else if (H_avg > 0.4 && H_avg < 0.7)
             ROS_INFO("BLUE");
-        else if (H_avg < 0.2 || H_avg > 0.8)
-            ROS_INFO("RED");
+        else if (H_avg < 0.2 || H_avg > 0.7){
+            if (H_avg < 0.18 && S_avg > 0.5 && V_avg > 0.4){
+                ROS_INFO("ORANGE STAR");}
+            else if (H_avg > 0.7 && S_avg > 0.25 && V_avg > 0.4){
+            ROS_INFO("PURPLE CROSS");}
+            else
+            ROS_INFO("RED");}
         else
             ROS_INFO("OTHER COLOR");
         ROS_INFO("H_avg: %f, S_avg: %f, V_avg: %f", H_avg, S_avg, V_avg);
