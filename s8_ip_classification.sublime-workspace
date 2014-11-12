@@ -1,1 +1,967 @@
-{}
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"coeffM",
+				"coeffMatrix"
+			],
+			[
+				"inlie",
+				"inlierSize"
+			],
+			[
+				"rgb",
+				"rgb_image"
+			],
+			[
+				"is",
+				"isItCircle"
+			],
+			[
+				"circ",
+				"circles"
+			],
+			[
+				"TOPI",
+				"TOPIC_RGB_IMAGE"
+			],
+			[
+				"pre",
+				"colorPreProcess"
+			],
+			[
+				"coef",
+				"coefficientsPlane"
+			],
+			[
+				"inlier",
+				"inlierSizePlane"
+			],
+			[
+				"x",
+				"x_center"
+			],
+			[
+				"get",
+				"getCloudSize"
+			],
+			[
+				"x_",
+				"x_center"
+			],
+			[
+				"cloud",
+				"cloudInitialized"
+			],
+			[
+				"R",
+				"R_avg"
+			],
+			[
+				"R_",
+				"R_low"
+			],
+			[
+				"clo",
+				"cloud"
+			],
+			[
+				"z",
+				"zDiff"
+			],
+			[
+				"max",
+				"max_point_AABB"
+			],
+			[
+				"ma",
+				"max_point_AABB"
+			],
+			[
+				"min",
+				"min_point_AABB"
+			],
+			[
+				"cl",
+				"cloudPublish"
+			],
+			[
+				"cluste",
+				"clusterCloud"
+			],
+			[
+				"Point",
+				"PointT"
+			],
+			[
+				"Po",
+				"PointT"
+			],
+			[
+				"point",
+				"pointT"
+			],
+			[
+				"poi",
+				"PointT"
+			],
+			[
+				"PARAM_C",
+				"PARAM_CAM_ANGLE_DEFAULT"
+			],
+			[
+				"cam",
+				"cam_angle"
+			],
+			[
+				"fil",
+				"filter_x"
+			],
+			[
+				"re",
+				"removeWallsCloud"
+			],
+			[
+				"coeff",
+				"coefficients"
+			],
+			[
+				"cou",
+				"cloudInitialized"
+			],
+			[
+				"pass",
+				"passthroughFilterCloud"
+			],
+			[
+				"PARAM_FL",
+				"PARAM_FLOOR_EXTRACTION_DIST_DEFAULT"
+			],
+			[
+				"floo",
+				"floor_extraction_dist"
+			],
+			[
+				"flo",
+				"floor_extraction_dist"
+			],
+			[
+				"extra",
+				"extractFloor"
+			],
+			[
+				"cloud_",
+				"cloud_floor"
+			],
+			[
+				"y",
+				"yDist"
+			],
+			[
+				"find",
+				"findClosestDist"
+			],
+			[
+				"ori",
+				"orientation3"
+			],
+			[
+				"orie",
+				"orientation2"
+			],
+			[
+				"tra",
+				"transformed_cloud"
+			],
+			[
+				"rota",
+				"rotatePointCloud"
+			],
+			[
+				"in",
+				"inputCloud"
+			],
+			[
+				"P",
+				"PointXYZ"
+			],
+			[
+				"clou",
+				"cloud_projected1"
+			],
+			[
+				"view",
+				"viewer_model"
+			],
+			[
+				"add",
+				"addPointCloud"
+			],
+			[
+				"ve",
+				"viewer_model"
+			],
+			[
+				"range",
+				"rangeImage"
+			],
+			[
+				"cyl_ra",
+				"cyl_rad_min"
+			],
+			[
+				"PARAM_CYL_R",
+				"PARAM_CYL_RAD_MIN_DEFAULT"
+			],
+			[
+				"PARAM_CYL_NO",
+				"PARAM_CYL_NORMAL_DISTANCE_NAME"
+			],
+			[
+				"cyl_",
+				"cyl_min_size"
+			],
+			[
+				"cyl",
+				"cloudCylinder"
+			],
+			[
+				"inier",
+				"inlierSize"
+			],
+			[
+				"le",
+				"voxel_leaf_size"
+			],
+			[
+				"PARAM_VO",
+				"PARAM_VOXEL_LEAF_SIZE_DEFAULT"
+			],
+			[
+				"vo",
+				"voxel_leaf_size"
+			],
+			[
+				"PARAM_V",
+				"PARAM_VOXEL_LEAF_SIZE_NAME"
+			],
+			[
+				"PARAM_OBJ_I",
+				"PARAM_OBJ_ITEM_PERCENTAGE_NAME"
+			],
+			[
+				"obj_min",
+				"obj_min_size"
+			],
+			[
+				"obj",
+				"obj_item_percentage"
+			],
+			[
+				"obj_m",
+				"obj_min_size"
+			],
+			[
+				"inli",
+				"inlierSize"
+			],
+			[
+				"std",
+				"std_kmean"
+			],
+			[
+				"stat",
+				"StatisticalOutlierRemoval"
+			],
+			[
+				"statisticalOutlier",
+				"statistical_outlier_removal"
+			],
+			[
+				"PARAM_ST",
+				"PARAM_STAT_STDDIST_DEFAULT"
+			],
+			[
+				"remove",
+				"removeObjectOutlier"
+			],
+			[
+				"angle",
+				"angleRad"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
+				"PARAM_OB",
+				"PARAM_OBJ_MIN_DEFAULT"
+			],
+			[
+				"PARAM_OBJ",
+				"PARAM_OBJ_MIN_DEFAULT"
+			],
+			[
+				"PARAM_O",
+				"PARAM_OBJ_DISTANCE_NAME"
+			],
+			[
+				"CLOUD",
+				"cloud_obj"
+			],
+			[
+				"coe",
+				"coeffMatrix"
+			],
+			[
+				"seg",
+				"seg_percentage"
+			],
+			[
+				"seg_",
+				"seg_distance"
+			],
+			[
+				"PARAM_SE",
+				"PARAM_SEG_DISTANCE_DEFAULT"
+			],
+			[
+				"filter",
+				"filterCloud"
+			],
+			[
+				"fi",
+				"filter_x"
+			],
+			[
+				"PA",
+				"PARAM_FILTER_X_DEFAULT"
+			],
+			[
+				"PARAM_F",
+				"PARAM_FILTER_X_NAME"
+			],
+			[
+				"TOPIC",
+				"TOPIC_EXTRACTED_OBJECTS"
+			],
+			[
+				"cloud_f",
+				"cloud_filtered"
+			],
+			[
+				"set",
+				"setInputCloud"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/object_classifier.cpp",
+			"settings":
+			{
+				"buffer_size": 12623,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/unnar/catkin_ws/src/s8_ip_detection/src/object_detector.cpp",
+			"settings":
+			{
+				"buffer_size": 14982,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "#include <ros/ros.h>\n#include <s8_common_node/Node.h>\n// PCL specific includes\n#include <pcl/io/pcd_io.h>\n#include <sensor_msgs/PointCloud2.h>\n#include <pcl_conversions/pcl_conversions.h>\n#include <pcl/conversions.h>\n#include <pcl/point_cloud.h>\n#include <pcl/point_types.h>\n#include <pcl/features/normal_3d.h>\n#include <pcl/filters/passthrough.h>\n#include <pcl/filters/voxel_grid.h>\n#include <pcl/filters/extract_indices.h>\n#include <pcl/filters/conditional_removal.h>\n#include <pcl/sample_consensus/model_types.h>\n#include <pcl/sample_consensus/method_types.h>\n#include <pcl/segmentation/sac_segmentation.h>\n#include <pcl/filters/statistical_outlier_removal.h>\n#include <pcl/ModelCoefficients.h>\n// OTHER\n#include <vector>\n\n\n// DEFINITIONS\n#define HZ                  10\n#define BUFFER_SIZE         10\n\n#define NODE_NAME           		\"s8_object_recognition_node\"\n#define TOPIC_POINT_CLOUD   		\"/camera/depth_registered/points\"\n#define TOPIC_EXTRACTED_OBJECTS		\"/s8/extractedObjects\"\n\n// PARAMETERS\n#define PARAM_FILTER_X_NAME						\"filter_x\"\n#define PARAM_FILTER_X_DEFAULT					0.1\n#define PARAM_FILTER_Z_NAME						\"filter_z\"\n#define PARAM_FILTER_Z_DEFAULT					1.0\n#define PARAM_FILTER_Y_NAME						\"filter_y\"\n#define PARAM_FILTER_Y_DEFAULT					0.2\n#define PARAM_SEG_DISTANCE_NAME					\"seg_distance\"\n#define PARAM_SEG_DISTANCE_DEFAULT				0.01\n#define PARAM_SEG_PERCENTAGE_NAME				\"seg_percentage\"\n#define PARAM_SEG_PERCENTAGE_DEFAULT			0.2\n#define PARAM_PLANE_DISTANCE_NAME				\"plane_distance\"\n#define PARAM_PLANE_DISTANCE_DEFAULT			0.002\n#define PARAM_PLANE_ITEM_PERCENTAGE_NAME		\"plane_item_percentage\"\n#define PARAM_PLANE_ITEM_PERCENTAGE_DEFAULT		0.05\n#define PARAM_PLANE_CLUSTER_PERCENTAGE_NAME		\"plane_cluster_percentage\"\n#define PARAM_PLANE_CLUSTER_PERCENTAGE_DEFAULT	0.1\n#define PARAM_PLANE_MIN_SIZE_NAME				\"plane_min_size\"\n#define PARAM_PLANE_MIN_SIZE_DEFAULT			100\n#define PARAM_CYL_DISTANCE_NAME					\"cyl_distance\"\n#define PARAM_CYL_DISTANCE_DEFAULT				0.01\n#define PARAM_CYL_NORMAL_DISTANCE_NAME			\"cyl_normal_distance\"\n#define PARAM_CYL_NORMAL_DISTANCE_DEFAULT		0.8\n#define PARAM_CYL_ITEM_PERCENTAGE_NAME			\"cyl_item_percentage\"\n#define PARAM_CYL_ITEM_PERCENTAGE_DEFAULT		0.05\n#define PARAM_CYL_CLUSTER_PERCENTAGE_NAME		\"cyl_cluster_percentage\"\n#define PARAM_CYL_CLUSTER_PERCENTAGE_DEFAULT	0.1\n#define PARAM_CYL_MIN_SIZE_NAME					\"cyl_min_size\"\n#define PARAM_CYL_MIN_SIZE_DEFAULT				2\n#define PARAM_CYL_RAD_MIN_NAME					\"cyl_rad_min\"\n#define PARAM_CYL_RAD_MIN_DEFAULT				0.01\n#define PARAM_CYL_RAD_MAX_NAME					\"cyl_rad_max\"\n#define PARAM_CYL_RAD_MAX_DEFAULT				0.04\n\n#define PARAM_STAT_KMEAN_NAME					\"std_kmean\"\n#define PARAM_STAT_KMEAN_DEFAULT				10\n#define PARAM_STAT_STDDIST_NAME					\"std_dist\"\n#define PARAM_STAT_STDDIST_DEFAULT				0.001\n#define PARAM_VOXEL_LEAF_SIZE_NAME				\"voxel_leaf_size\"\n#define PARAM_VOXEL_LEAF_SIZE_DEFAULT			0.005\n\n\ntypedef pcl::PointXYZRGB PointT;\n\nclass ObjectRecognition : public s8::Node \n{\n	const int hz;\n\n	ros::Subscriber point_cloud_subscriber;\n	ros::Publisher point_cloud_publisher;\n\n	double 	filter_x, filter_y, filter_z;\n	double 	seg_distance, seg_percentage;\n	double 	plane_distance, plane_cluster_percentage, plane_item_percentage;\n	int 	plane_min_size;\n	double 	cyl_distance, cyl_cluster_percentage, cyl_item_percentage, cyl_normal_distance, cyl_rad_min, cyl_rad_max;\n	int 	cyl_min_size;\n	double 	std_dist; \n	int 	std_kmean;\n	double	voxel_leaf_size;\n\n	sensor_msgs::PointCloud2 input, output, cloud_msg;\n\npublic:\n	ObjectRecognition(int hz) : hz(hz)\n	{\n		add_params();\n		//printParams();\n		point_cloud_subscriber = nh.subscribe(TOPIC_POINT_CLOUD, BUFFER_SIZE, &ObjectRecognition::point_cloud_callback, this);\n		point_cloud_publisher  = nh.advertise<sensor_msgs::PointCloud2> (TOPIC_EXTRACTED_OBJECTS, BUFFER_SIZE);\n	}\n\n	void update() {\n		pcl::PointCloud<PointT>::Ptr cloud (new pcl::PointCloud<PointT>);\n		\n		pcl::fromROSMsg (input, *cloud);\n\n		passthroughFilterCloud(cloud);\n		voxelGridCloud(cloud);\n		cloud = segmentCloud(cloud);\n		statisticalOutlierRemovalCloud(cloud);\n		\n		cloudPublish(cloud);\n		\n		pcl::PointCloud<PointT>::Ptr cloudCylinder (new pcl::PointCloud<PointT>);\n		*cloudCylinder = *cloud;\n\n		std::vector<std::vector<float> > coefficientsPlane;\n		int inlierSizePlane = 0;\n		recognizePlaneObject(cloud, &coefficientsPlane, &inlierSizePlane);\n\n		std::vector<std::vector<float> > coefficientsCylinder;\n		int inlierSizeCylinder = 0;\n		recognizeCylinderObject(cloudCylinder, &coefficientsCylinder, &inlierSizeCylinder);\n\n		ROS_INFO(\"Plane: %d, Cylinder: %d\", inlierSizePlane, inlierSizeCylinder);\n    }\n\nprivate:\n	void cloudPublish(pcl::PointCloud<PointT>::Ptr cloud_pub)\n	{\n		pcl::toROSMsg(*cloud_pub, output);\n		point_cloud_publisher.publish (output);\n	}\n\n	// Removes outliers using a StatisticalOutlierRemoval filter\n	void statisticalOutlierRemovalCloud(pcl::PointCloud<PointT>::Ptr cloud_stat)\n	{\n		pcl::StatisticalOutlierRemoval<PointT> sta;\n		sta.setInputCloud (cloud_stat);\n		sta.setMeanK (std_kmean);\n		sta.setStddevMulThresh (std_dist);\n		sta.filter (*cloud_stat);\n	}\n\n	// Down samples the point cloud using VoxelGrid filter\n	// to make computations easier.\n	void voxelGridCloud(pcl::PointCloud<PointT>::Ptr cloud_stat)\n	{\n		pcl::VoxelGrid<PointT> sor;\n  		sor.setInputCloud (cloud_stat);\n  		sor.setLeafSize ((float)voxel_leaf_size, (float)voxel_leaf_size, (float)voxel_leaf_size);\n  		sor.filter (*cloud_stat);\n	}\n\n	// Build a passthrough filter to reduce field of view.\n	void passthroughFilterCloud(pcl::PointCloud<PointT>::Ptr cloud_filter)\n    {\n		pcl::PassThrough<PointT> pass;\n\n		pass.setInputCloud (cloud_filter);\n		pass.setFilterFieldName (\"z\");\n		pass.setFilterLimits (0.3, filter_z);\n		pass.filter (*cloud_filter);\n\n		pass.setInputCloud (cloud_filter);\n		pass.setFilterFieldName (\"x\");\n		pass.setFilterLimits (-filter_x, filter_x);\n		pass.filter (*cloud_filter);\n\n		pass.setInputCloud (cloud_filter);\n		pass.setFilterFieldName (\"y\");\n		pass.setFilterLimits (-filter_y, 0.2);\n		pass.filter (*cloud_filter);\n    }\n\n    pcl::PointCloud<PointT>::Ptr segmentCloud(pcl::PointCloud<PointT>::Ptr cloud_seg)\n    {\n    	pcl::PointCloud<PointT>::Ptr cloud_plane (new pcl::PointCloud<PointT>);\n		pcl::ModelCoefficients::Ptr coeff (new pcl::ModelCoefficients);\n		pcl::PointIndices::Ptr inliers (new pcl::PointIndices);\n\n		pcl::SACSegmentation<PointT> seg;\n		pcl::ExtractIndices<PointT> extract;\n\n		seg.setOptimizeCoefficients (true);\n		seg.setModelType (pcl::SACMODEL_PLANE);\n		seg.setMethodType (pcl::SAC_RANSAC);\n		seg.setDistanceThreshold (seg_distance);\n\n		int i = 0, nr_points = (int) cloud_seg->points.size ();\n		// While 20% of the original cloud is still there\n		while (cloud_seg->points.size () > seg_percentage * nr_points && i < 10)\n		{\n			//seg.setInputCloud (cloud);\n			seg.setInputCloud (cloud_seg);\n			seg.segment (*inliers, *coeff); \n			if (inliers->indices.size () == 0)\n			{\n				//std::cerr << \"Could not estimate a planar model for the given dataset.\" << std::endl;\n				break;\n			}\n			if(inliers->indices.size() < nr_points/20){\n				i++;\n				//std::cerr << i << \"To small\" << std::endl;\n				continue;\n			}\n			//ROS_INFO(\"%d, %d\",i, (int)inliers->indices.size());\n			// Extract the planar inliers from the input cloud\n			extract.setInputCloud (cloud_seg);\n			extract.setIndices (inliers);\n			extract.setNegative (true);\n			extract.filter (*cloud_plane);\n			//ROS_INFO(\"%d, %d\",(int)cloud_seg->points.size (), (int)cloud_plane->points.size ());\n			cloud_seg.swap (cloud_plane);\n			i++;\n		}\n		return cloud_seg;\n		//cloudPublish(cloud_seg);\n    }\n\n    void recognizePlaneObject(pcl::PointCloud<PointT>::Ptr cloud_seg, std::vector<std::vector<float> > *coeffMatrix, int *inlierSize)\n    {\n    	pcl::PointCloud<PointT>::Ptr cloud_plane (new pcl::PointCloud<PointT>);\n    	pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);\n    	pcl::search::KdTree<PointT>::Ptr tree (new pcl::search::KdTree<PointT> ());\n		pcl::ModelCoefficients coeff;\n		pcl::PointIndices::Ptr inliers (new pcl::PointIndices);\n\n		pcl::ExtractIndices<PointT> extract;\n		pcl::NormalEstimation<PointT, pcl::Normal> ne;\n  		pcl::SACSegmentationFromNormals<PointT, pcl::Normal> seg; \n\n  		// Estimate point normals\n		ne.setSearchMethod (tree);\n		ne.setKSearch (50);\n\n		seg.setOptimizeCoefficients (true);\n		seg.setModelType (pcl::SACMODEL_PLANE);\n		seg.setMethodType (pcl::SAC_RANSAC);\n		seg.setDistanceThreshold (plane_distance);\n		seg.setNormalDistanceWeight (0.1);\n		seg.setMaxIterations (1000);\n\n		int i = 0, nr_points = (int) cloud_seg->points.size ();\n		if (nr_points < plane_min_size){\n			return;\n		}\n		// While 10% of the original cloud is still there\n		while (cloud_seg->points.size () > plane_cluster_percentage * nr_points && i < 5)\n		{\n			//seg.setInputCloud (cloud);\n			ne.setInputCloud (cloud_seg);\n			ne.compute (*cloud_normals);\n			seg.setInputCloud (cloud_seg);\n			seg.setInputNormals (cloud_normals);\n			seg.segment (*inliers, coeff);\n			if (inliers->indices.size () == 0)\n			{\n				std::cerr << \"Could not estimate a planar model for the given dataset.\" << std::endl;\n				break;\n			}\n			if(inliers->indices.size() < nr_points*plane_item_percentage|| inliers->indices.size() < plane_min_size){\n				i++;\n				continue;\n			}\n			// Extract the planar inliers from the input cloud\n			extract.setInputCloud (cloud_seg);\n			extract.setIndices (inliers);\n			extract.setNegative (true);\n			extract.filter (*cloud_plane);\n			cloud_seg.swap (cloud_plane);\n			(*coeffMatrix).push_back(coeff.values);\n			i++;\n			*inlierSize += inliers->indices.size();\n		}\n		float angle;\n		if ((*coeffMatrix).size() == 2)\n		{\n			angle = getAngle((*coeffMatrix)[0],(*coeffMatrix)[1]);\n			//ROS_INFO(\"%f\", angle);\n		}\n		//ROS_INFO(\"%lu\", (*coeffMatrix).size());\n    }\n\n    void recognizeCylinderObject(pcl::PointCloud<PointT>::Ptr cloud_seg, std::vector<std::vector<float> > *coeffMatrix, int *inlierSize)\n    {\n    	pcl::PointCloud<PointT>::Ptr cloud_plane (new pcl::PointCloud<PointT>);\n    	pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);\n    	pcl::search::KdTree<PointT>::Ptr tree (new pcl::search::KdTree<PointT> ());\n		pcl::ModelCoefficients coeff;\n		pcl::PointIndices::Ptr inliers (new pcl::PointIndices);\n\n		pcl::ExtractIndices<PointT> extract;\n\n		pcl::NormalEstimation<PointT, pcl::Normal> ne;\n  		pcl::SACSegmentationFromNormals<PointT, pcl::Normal> seg; \n\n  		// Estimate point normals\n		ne.setSearchMethod (tree);\n		ne.setKSearch (50);\n\n		seg.setOptimizeCoefficients (true);\n		seg.setModelType (pcl::SACMODEL_CYLINDER);\n		seg.setMethodType (pcl::SAC_RANSAC);\n		seg.setNormalDistanceWeight (cyl_normal_distance);\n		seg.setMaxIterations (1000);\n		seg.setDistanceThreshold (cyl_distance);\n  		seg.setRadiusLimits (0.015, 0.03);\n\n		int i = 0, nr_points = (int) cloud_seg->points.size ();\n		if (nr_points < cyl_min_size){\n			return;\n		}\n		// While 10% of the original cloud is still there\n		while (cloud_seg->points.size () > cyl_cluster_percentage * nr_points && i < 5)\n		{\n			//seg.setInputCloud (cloud);\n			ne.setInputCloud (cloud_seg);\n			ne.compute (*cloud_normals);\n			seg.setInputCloud (cloud_seg);\n			seg.setInputNormals (cloud_normals);\n			seg.segment (*inliers, coeff); \n			if (inliers->indices.size () == 0)\n			{\n				std::cerr << \"Could not estimate a planar model for the given dataset.\" << std::endl;\n				break;\n			}\n			if(inliers->indices.size() < nr_points*cyl_item_percentage|| inliers->indices.size() < cyl_min_size){\n				i++;\n				continue;\n			}\n			// Extract the planar inliers from the input cloud\n			extract.setInputCloud (cloud_seg);\n			extract.setIndices (inliers);\n			extract.setNegative (true);\n			extract.filter (*cloud_plane);\n			cloud_seg.swap (cloud_plane);\n			(*coeffMatrix).push_back(coeff.values);\n			i++;\n			*inlierSize += inliers->indices.size();\n		}\n		float angle;\n		if ((*coeffMatrix).size() == 2)\n		{\n			angle = getAngle((*coeffMatrix)[0],(*coeffMatrix)[1]);\n			//ROS_INFO(\"%f\", angle);\n		}\n		//ROS_INFO(\"%lu\", (*coeffMatrix).size());\n    }\n\n    // Calculates the angle between two 3D planes.\n    float getAngle (std::vector<float> v1, std::vector<float> v2)\n	{\n		float dotproduct 	= v1[0]*v2[0]+v1[1]*v2[1]+v1[2]*v2[2];\n		float len1 			= v1[0]*v1[0]+v1[1]*v1[1]+v1[2]*v1[2];\n		float len2 			= v2[0]*v2[0]+v2[1]*v2[1]+v2[2]*v2[2];\n		float angleRad 		= acos(dotproduct/(sqrt(len1)*sqrt(len2)));\n		return angleRad*180/3.1415;\n	}\n\n	void point_cloud_callback(const sensor_msgs::PointCloud2ConstPtr& cloud_msg)\n	{\n		input = *cloud_msg;\n	}\n\n    void add_params() \n    {\n    	// Passthrough filter parameters.\n        add_param(PARAM_FILTER_X_NAME, filter_x, PARAM_FILTER_X_DEFAULT);\n        add_param(PARAM_FILTER_Y_NAME, filter_y, PARAM_FILTER_Y_DEFAULT);\n        add_param(PARAM_FILTER_Z_NAME, filter_z, PARAM_FILTER_Z_DEFAULT);\n        // Segmentation parameters, remove floors and walls.\n        add_param(PARAM_SEG_DISTANCE_NAME, seg_distance, PARAM_SEG_DISTANCE_DEFAULT);\n        add_param(PARAM_SEG_PERCENTAGE_NAME, seg_percentage, PARAM_SEG_PERCENTAGE_DEFAULT);\n        // Plane recognition parameters.\n        add_param(PARAM_PLANE_MIN_SIZE_NAME, plane_min_size, PARAM_PLANE_MIN_SIZE_DEFAULT);\n        add_param(PARAM_PLANE_DISTANCE_NAME, plane_distance, PARAM_PLANE_DISTANCE_DEFAULT);\n        add_param(PARAM_PLANE_ITEM_PERCENTAGE_NAME, plane_item_percentage, PARAM_PLANE_ITEM_PERCENTAGE_DEFAULT);\n        add_param(PARAM_PLANE_CLUSTER_PERCENTAGE_NAME, plane_cluster_percentage, PARAM_PLANE_CLUSTER_PERCENTAGE_DEFAULT);\n        // Cylinder recognition parameters.\n        add_param(PARAM_CYL_MIN_SIZE_NAME, cyl_min_size, PARAM_CYL_MIN_SIZE_DEFAULT);\n        add_param(PARAM_CYL_DISTANCE_NAME, cyl_distance, PARAM_CYL_DISTANCE_DEFAULT);\n        add_param(PARAM_CYL_NORMAL_DISTANCE_NAME, cyl_normal_distance, PARAM_CYL_NORMAL_DISTANCE_DEFAULT);\n        add_param(PARAM_CYL_ITEM_PERCENTAGE_NAME, cyl_item_percentage, PARAM_CYL_ITEM_PERCENTAGE_DEFAULT);\n        add_param(PARAM_CYL_CLUSTER_PERCENTAGE_NAME, cyl_cluster_percentage, PARAM_CYL_CLUSTER_PERCENTAGE_DEFAULT);\n        add_param(PARAM_CYL_RAD_MIN_NAME, cyl_rad_min, PARAM_CYL_RAD_MIN_DEFAULT);\n        add_param(PARAM_CYL_RAD_MAX_NAME, cyl_rad_max, PARAM_CYL_RAD_MAX_DEFAULT);\n        // Statistical outlier parameters.\n        add_param(PARAM_STAT_KMEAN_NAME, std_kmean, PARAM_STAT_KMEAN_DEFAULT);\n        add_param(PARAM_STAT_STDDIST_NAME, std_dist, PARAM_STAT_STDDIST_DEFAULT);\n        // Voxel filtering parameters\n        add_param(PARAM_VOXEL_LEAF_SIZE_NAME, voxel_leaf_size, PARAM_VOXEL_LEAF_SIZE_DEFAULT);\n    }\n};\n\nint main(int argc, char **argv) {\n    \n    ros::init(argc, argv, NODE_NAME);\n\n    ObjectRecognition recognizer(HZ);\n    ros::Rate loop_rate(HZ);\n\n    while(ros::ok()) {\n        recognizer.update();\n        ros::spinOnce();\n        loop_rate.sleep();\n    }\n\n    return 0;\n}",
+			"file": "/home/unnar/catkin_ws/src/s8_ip/src/object_recognition.cpp",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 14799,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/unnar/catkin_ws/src/s8_ip/src/ball_detector.cpp",
+			"settings":
+			{
+				"buffer_size": 7233,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/unnar/catkin_ws/src/s8_ip/src/image_converter.cpp",
+			"settings":
+			{
+				"buffer_size": 8149,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/unnar/catkin_ws/src/s8_ip/src/shape_detector.cpp",
+			"settings":
+			{
+				"buffer_size": 6601,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 285.0,
+		"selected_items":
+		[
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"comm",
+				"Git: Quick Commit"
+			],
+			[
+				"co",
+				"Git: Quick Commit"
+			],
+			[
+				"add",
+				"Git: Add Current File"
+			],
+			[
+				"ad",
+				"Git: Add Current File"
+			],
+			[
+				"commi",
+				"Git: Quick Commit"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Enable Package"
+			],
+			[
+				"package",
+				"Package Control: Disable Package"
+			],
+			[
+				"packa",
+				"Package Control: Disable Package"
+			],
+			[
+				"bu",
+				"Snippet: Tabular"
+			],
+			[
+				"buil",
+				"Build: Choose Quick Build"
+			],
+			[
+				"build",
+				"Build: Primary Quick Build"
+			],
+			[
+				"clea",
+				"LaTeXing: Clean Temporary Output Dictionary"
+			],
+			[
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"pa",
+				"Package Control: Enable Package"
+			],
+			[
+				"late",
+				"Preferences: LaTeXing Settings - User"
+			],
+			[
+				"to",
+				"LaTeXTools: Toggle focus (PDF/editor)"
+			],
+			[
+				"toggle",
+				"LaTeXTools: Toggle focus (PDF/editor)"
+			],
+			[
+				"te",
+				"TeX Live Package Manager: Manage Collections"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/unnar/catkin_ws/src/s8_ip_classification",
+		"/home/unnar/catkin_ws/src/s8_ip_classification/src",
+		"/home/unnar/catkin_ws/src/s8_ip",
+		"/home/unnar/catkin_ws/src/s8_ip/src",
+		"/home/unnar/catkin_ws/src/s8_ip_detection"
+	],
+	"file_history":
+	[
+		"/home/unnar/catkin_ws/src/s8_common_node/include/s8_common_node/Node.h",
+		"/home/unnar/catkin_ws/src/s8_ip/src/object_tracker.cpp",
+		"/home/unnar/catkin_ws/src/s8_ip/src/object_recognition.cpp",
+		"/home/unnar/catkin_ws/src/s8_ip_detection/src/object_detector.cpp",
+		"/home/unnar/catkin_ws/src/s8_ip_classification/src/object_classifier.cpp",
+		"/home/unnar/Dropbox/DD2220/Ethics/ethicsCrap.tex",
+		"/home/unnar/catkin_ws/src/s8_ip_classification/package.xml",
+		"/home/unnar/catkin_ws/src/s8_ip_classification/src/object_detector.cpp",
+		"/home/unnar/catkin_ws/src/s8_ip_classification/s8_ip_classification.sublime-project",
+		"/home/unnar/PCL/planeSegmentation/planar_segmentation.cpp",
+		"/home/unnar/PCL/matrixTransform/matrix_transform.cpp",
+		"/home/unnar/catkin_ws/src/s8_ip_classification/CMakeLists.txt",
+		"/home/unnar/Desktop/internet.sh",
+		"/media/Data/Downloads/amc.sh",
+		"/media/Data/Downloads/transmission-postprocess-manual.sh",
+		"/media/Data/fn.amc",
+		"/home/unnar/catkin_ws/src/s8_ip_detection/CMakeLists.txt",
+		"/home/unnar/catkin_ws/src/s8_ip_detection/s8_ip_detection.sublime-project",
+		"/home/unnar/PCL/correspondence_grouping.cpp",
+		"/home/unnar/PCL/ProjectPoints/plane_inliers.cpp",
+		"/home/unnar/PCL/matrixTransform/CMakeLists.txt",
+		"/home/unnar/PCL/planeSegmentation/CMakeLists.txt",
+		"/home/unnar/PCL/ProjectPoints/sphere_inliers.cpp",
+		"/home/unnar/PCL/ProjectPoints/project_inliers.cpp",
+		"/home/unnar/PCL/CMakeLists.txt",
+		"/home/unnar/PCL/ProjectPoints/CMakeLists.txt",
+		"/home/unnar/catkin_ws/src/pcl/CMakeLists.txt",
+		"/home/unnar/catkin_ws/src/my_pcl_tutorial/CMakeLists.txt",
+		"/media/Data/Downloads/transmission-postprocess.sh",
+		"/usr/bin/pireboot.sh",
+		"/usr/bin/local/pireboot.sh",
+		"/home/unnar/catkin_ws/src/s8_ip/CMakeLists.txt",
+		"/home/unnar/catkin_ws/src/my_pcl_tutorial/src/example.cpp",
+		"/media/Data/Downloads/transmission-postprocess",
+		"/home/unnar/catkin_ws/src/s8_ip/src/image_converter.cpp",
+		"/home/unnar/catkin_ws/src/s8_ip/src/test.cpp",
+		"/etc/samba/smb.conf",
+		"/home/unnar/catkin_ws/src/s8_ip/package.xml",
+		"/home/unnar/catkin_ws/src/s8_ip/src/houghcircle.cpp",
+		"/home/unnar/catkin_ws/src/my_pcl_tutorial/package.xml",
+		"/home/unnar/catkin_ws/src/my_pcl_tutorial/src/example2.cpp",
+		"/home/unnar/Desktop/PID",
+		"/home/unnar/Dropbox/Project Managment/Assignment1/Final Report/main.tex",
+		"/home/unnar/catkin_ws/src/ras_lab1/ras_lab1_motors/CMakeLists.txt",
+		"/home/unnar/catkin_ws/src/ras_lab1/ras_lab1_distance_sensor/CMakeLists.txt",
+		"/home/unnar/catkin_ws/src/pcl/cylinder_segmentation.cpp",
+		"/home/unnar/catkin_ws/src/ras_lab1/ras_lab1_launch/CMakeLists.txt",
+		"/home/unnar/catkin_ws/src/pcl/cylinder_segmentation..cpp",
+		"/home/unnar/Dropbox/Project Managment/Assignment1/Final Report/Final_comments/Final_comments.tex",
+		"/home/unnar/Dropbox/Project Managment/Assignment1/Final Report/Summary_of_plans/Summary_of_plans.tex",
+		"/home/unnar/Dropbox/Project Managment/Assignment1/Final Report/Follow_up_of_objectives/Follow_up_of_objectives.tex",
+		"/home/unnar/Dropbox/Project Managment/Assignment1/Final Report/Attatchments/Attatchments.tex",
+		"/home/unnar/Dropbox/Project Managment/Assignment1/Final Report/Lessons_learned/Lessons_learned.tex",
+		"/home/unnar/Dropbox/Project Managment/Assignment1/Final Report/FinalReport.sublime-project",
+		"/home/unnar/.config/sublime-text-3/Packages/User/LaTeXTools.sublime-settings",
+		"/home/unnar/.config/sublime-text-3/Packages/LaTeXTools/Default (Linux).sublime-keymap",
+		"/home/unnar/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/unnar/Dropbox/TestLatex/TestLatex.sublime-project",
+		"/home/unnar/Dropbox/TestLatex/test.tex",
+		"/home/unnar/Dropbox/TestLatex/sectioon1/section1.tex",
+		"/home/unnar/.config/sublime-text-3/Packages/User/LaTeXing.sublime-settings",
+		"/home/unnar/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/unnar/.config/sublime-text-3/Packages/LaTeXing/LaTeXing.sublime-settings",
+		"/home/unnar/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/unnar/Dropbox/TestLatex/test.pdf",
+		"/home/unnar/Desktop/texTest/gummi.tex",
+		"/home/unnar/Dropbox/DD2432/Exercise1/d1.tex",
+		"/home/unnar/.config/sublime-text-3/Packages/LaTeXing/LaTeX.sublime-build",
+		"/usr/local/share/texmf/tex/latex/skoli/skoli.sty"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"rgbImageInitialized",
+			"isInitializedColor",
+			"RGBI",
+			"filtered",
+			"pointT",
+			"XYZ",
+			".\n",
+			"seriesFor",
+			"TV",
+			"because",
+			"copy",
+			"rename",
+			"TV ",
+			"TVSh",
+			"no file",
+			"extract",
+			"extractI",
+			">\n",
+			"();\n",
+			"view",
+			"TV",
+			"TV ",
+			"se",
+			"cout",
+			"range_image",
+			"XYZ",
+			"PARAM_CYL_RAD_MAX_DEFAULT",
+			"obj_",
+			"01",
+			"PLANE_",
+			"plane_",
+			"PLANE_",
+			"obj_",
+			"OBJ_",
+			"j",
+			"XYZ",
+			"coeffMatrix",
+			"try",
+			"nh",
+			"cloud",
+			"coeff",
+			");\n",
+			"coefficients",
+			"setInputNo",
+			"cloud_f",
+			"inliers_plane",
+			"cloud_filter",
+			"io",
+			"refer",
+			"autoco"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"PointT",
+			"rangeImage",
+			"CYL_",
+			"cyl_",
+			"CYL_",
+			"plane_",
+			"PLANE_"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/object_classifier.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12623,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1231,
+								1231
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 399.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/unnar/catkin_ws/src/s8_ip_detection/src/object_detector.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14982,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								971,
+								971
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 399.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/unnar/catkin_ws/src/s8_ip/src/object_recognition.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14799,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12564,
+								12564
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6954.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/unnar/catkin_ws/src/s8_ip/src/ball_detector.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								333,
+								333
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3363.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/unnar/catkin_ws/src/s8_ip/src/image_converter.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8149,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8073,
+								8073
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4498.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/unnar/catkin_ws/src/s8_ip/src/shape_detector.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6601,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3323,
+								3323
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1767.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 124.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git-commit":
+	{
+		"height": 124.0
+	},
+	"output.git-push":
+	{
+		"height": 124.0
+	},
+	"project": "s8_ip_classification.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/Dropbox/TestLatex/FinalReport.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 209.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
