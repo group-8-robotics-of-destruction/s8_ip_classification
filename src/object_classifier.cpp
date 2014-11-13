@@ -26,6 +26,9 @@
 #include <vector>
 #include <signal.h>
 #include <iostream>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
+#include <boost/foreach.hpp>
 
 
 // DEFINITIONS
@@ -36,6 +39,7 @@
 #define TOPIC_POINT_CLOUD   		"/s8/detectedObject"
 #define TOPIC_RGB_IMAGE             "/camera/rgb/image_rect_color"
 #define TOPIC_EXTRACTED_OBJECTS		"/s8/modifiedObject"
+#define CONFIG_DOC                  "catkin_ws/src/s8_ip_classification/parameters/parameters.json"
 
 
 static const std::string OPENCV_WINDOW = "Image window";
@@ -56,6 +60,14 @@ class ObjectClassifier : public s8::Node
 
     bool cloudInitialized;
     bool rgbImageInitialized;
+
+    float circle_red_low_H, circle_red_high_H, circle_yellow_low_H, circle_yellow_high_H;
+    float cube_red_low_H, cube_red_high_H, cube_yellow_low_H, cube_yellow_high_H;
+    float cube_green_low_H, cube_green_high_H, cube_blue_low_H, cube_blue_high_H;
+    float others_orange_low_H, others_orange_high_H, others_purple_low_H, others_purple_high_H;
+    float others_green_low_H, others_green_high_H, others_blue_low_H, others_blue_high_H;
+
+    int param_plane_count_points;
 
 public:
     ObjectClassifier(int hz) : hz(hz)
@@ -85,33 +97,20 @@ public:
         }
         if(rgbImageInitialized == false) return;
 
-        bool isItCircle = isCircle();
-
-        if (isCircle())
+        if (recognizeSphereObject(cloud))
         {
             findCircleClass();
         }
         else if (recognizePlaneObject(cloud))
         {
-            ROS_INFO("I see a cube");
+            findCubeClass();
         }
-        else
-            ROS_INFO("I don't see anything");
-        //else
-            //What is the color
-        //getColors(cloud);
-/*
-        std::vector<std::vector<float> > coefficientsPlane;
-        int inlierSizePlane = 0;
-        recognizePlaneObject(cloud, &coefficientsPlane, &inlierSizePlane);
-        float angle;
-        if (coefficientsPlane.size() > 1)
+        else 
         {
-            angle = getAngle(coefficientsPlane[0],coefficientsPlane[1]);
-            ROS_INFO("number of points: %d, planes: %d, angle: %f", inlierSizePlane, coefficientsPlane.size(), angle);
+            findOthersClass();
         }
-        ROS_INFO("number of points: %d, planes: %d", inlierSizePlane, coefficientsPlane.size());
-*/
+        
+        
         cloudPublish(cloud);
         cloudInitialized = false;
     }
@@ -122,12 +121,40 @@ private:
     {
         float H = 0.0, S = 0.0, V = 0.0;
         getColors(cloud, &H, &S, &V);
-        if(H > 0.9 || H < 0.1)
+        if(H > circle_red_high_H || H < circle_red_low_H)
             ROS_INFO("Seeing red circle");
-        else if (H < 0.7 && H > 0.5)
+        else if (H < circle_yellow_high_H && H > circle_yellow_low_H)
             ROS_INFO("Seeing yellow circle");
         else
             ROS_INFO("Seeing something else");
+    }
+
+    void findCubeClass()
+    {
+        float H = 0.0, S = 0.0, V = 0.0;
+        getColors(cloud, &H, &S, &V);
+        if(H > cube_red_high_H || H < cube_red_low_H)
+            ROS_INFO("Seeing red cube");
+        else if (H < cube_yellow_high_H && H > cube_yellow_low_H)
+            ROS_INFO("Seeing yellow cube");
+        else if (H < cube_green_high_H && H > cube_green_low_H)
+            ROS_INFO("Seeing green cube");
+        else if (H < cube_blue_high_H && H > cube_blue_low_H)
+            ROS_INFO("Seeing blue cube");
+    }
+
+    void findOthersClass()
+    {
+        float H = 0.0, S = 0.0, V = 0.0;
+        getColors(cloud, &H, &S, &V);
+        if(H > others_orange_high_H || H < others_orange_low_H)
+            ROS_INFO("Seeing orange star");
+        else if (H < others_purple_high_H && H > others_purple_low_H)
+            ROS_INFO("Seeing purple cross");
+        else if (H < cube_green_high_H && H > cube_green_low_H)
+            ROS_INFO("Seeing green cylinder");
+        else if (H < cube_blue_high_H && H > cube_blue_low_H)
+            ROS_INFO("Seeing blue triangle");
     }
 
     void getColors(pcl::PointCloud<PointT>::Ptr cloud_color, float *H, float *S, float *V)
@@ -158,6 +185,7 @@ private:
         G_avg = G_acc / size;
         B_avg = B_acc / size;
         RGB2HSV((float)R_avg, (float)G_avg, (float)B_avg, *H, *S, *V);
+        ROS_INFO("H: %f, S: %f, V: %f", *H, *S, *V);
         /*
         if (H_avg > 0.2 && H_avg < 0.4)
             ROS_INFO("GREEN CUBE");
@@ -242,24 +270,73 @@ private:
             if (inliers->indices.size() > inlierSize)
                 inlierSize = inliers->indices.size();
         }
-        if (inlierSize > 50)
+        if (inlierSize > param_plane_count_points)
         {
             if (coeffMatrix.size() == 2)
             {
                 float angle = getAngle(coeffMatrix[0],coeffMatrix[1]);
                 if (abs(angle - 90) > 8 )
+                {
+                    ROS_INFO("2 PLANES");
                     return false;
+                }
             }
             else if (coeffMatrix.size() == 3)
             {
                 float angle1 = getAngle(coeffMatrix[0],coeffMatrix[1]);
                 float angle2 = getAngle(coeffMatrix[0],coeffMatrix[2]);
                 float angle3 = getAngle(coeffMatrix[1],coeffMatrix[2]);
-                if (abs(angle1 - 90) > 8 || abs(angle2 - 90) > 8 || abs(angle3 - 90) > 8 )
+                if (abs(angle1 - 90) > 10 || abs(angle2 - 90) > 10 || abs(angle3 - 90) > 10 )
+                {
+                    ROS_INFO("3 PLANES");
                     return false;
+                }
             }
             return true;
         }
+        else
+            return false;
+    }
+
+    bool recognizeSphereObject(pcl::PointCloud<PointT>::Ptr cloud_seg)
+    {
+        int inlierSize = 0;
+
+        pcl::PointCloud<PointT>::Ptr cloud_plane (new pcl::PointCloud<PointT>);
+        pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);
+        pcl::search::KdTree<PointT>::Ptr tree (new pcl::search::KdTree<PointT> ());
+        pcl::ModelCoefficients coeff;
+        pcl::PointIndices::Ptr inliers (new pcl::PointIndices);
+
+        pcl::ExtractIndices<PointT> extract;
+        pcl::NormalEstimation<PointT, pcl::Normal> ne;
+        pcl::SACSegmentationFromNormals<PointT, pcl::Normal> seg; 
+
+        // Estimate point normals
+        ne.setSearchMethod (tree);
+        ne.setKSearch (50);
+
+        seg.setOptimizeCoefficients (true);
+        seg.setModelType (pcl::SACMODEL_SPHERE);
+        seg.setMethodType (pcl::SAC_RANSAC);
+        seg.setDistanceThreshold (0.001);
+        seg.setNormalDistanceWeight (0.1);
+        seg.setMaxIterations (1000);
+        seg.setRadiusLimits (0.010, 0.05);
+
+        int i = 0, nr_points = (int) cloud_seg->points.size ();
+        if (nr_points < 50){
+            return false;
+        }
+        
+        //seg.setInputCloud (cloud);
+        ne.setInputCloud (cloud_seg);
+        ne.compute (*cloud_normals);
+        seg.setInputCloud (cloud_seg);
+        seg.setInputNormals (cloud_normals);
+        seg.segment (*inliers, coeff);
+        if (inliers->indices.size() > 80)
+            return true;
         else
             return false;
     }
@@ -336,13 +413,15 @@ private:
 
     void colorPreProcess(cv::Mat *HSVImage, cv::Mat *RGBImage)
     {
-        cv::Mat tempHSV, tempRGB;
+        cv::Mat tempHSV, tempRGB, frame;
         //Convert the captured frame from BGR to HSV
         cvtColor(rgb_image->image, tempHSV, COLOR_BGR2HSV);
         tempRGB = rgb_image->image;
         *HSVImage = tempHSV;
         *RGBImage = tempRGB;
-        GaussianBlur( *RGBImage, *RGBImage, Size(5, 5), 1, 1 );
+        GaussianBlur(*RGBImage, frame, cv::Size(0, 0), 4);
+        addWeighted(*RGBImage, 1.6, frame, -0.5, 0, *RGBImage);
+        //GaussianBlur( *RGBImage, *RGBImage, Size(5, 5), 1, 1 );
     }
 
     void point_cloud_callback(const sensor_msgs::PointCloud2ConstPtr& cloud_msg)
@@ -374,11 +453,40 @@ private:
 
     void add_params()
     {
+        boost::property_tree::ptree pt;
+        boost::property_tree::read_json(CONFIG_DOC, pt);
+        // CIRCLE
+        circle_red_low_H = pt.get<float>("circle_red_low_H");
+        circle_red_high_H = pt.get<float>("circle_red_high_H");
+        circle_yellow_low_H = pt.get<float>("circle_yellow_low_H");
+        circle_yellow_high_H = pt.get<float>("circle_yellow_high_H");
+        // CUBE
+        cube_red_low_H = pt.get<float>("cube_red_low_H");
+        cube_red_high_H = pt.get<float>("cube_red_high_H");
+        cube_yellow_low_H = pt.get<float>("cube_yellow_low_H");
+        cube_yellow_high_H = pt.get<float>("cube_yellow_high_H");
+        cube_green_low_H = pt.get<float>("cube_green_low_H");
+        cube_green_high_H = pt.get<float>("cube_green_high_H");
+        cube_blue_low_H = pt.get<float>("cube_blue_low_H");
+        cube_blue_high_H = pt.get<float>("cube_blue_high_H");
+        // OTHERS
+        others_orange_low_H = pt.get<float>("others_orange_low_H");
+        others_orange_high_H = pt.get<float>("others_orange_high_H");
+        others_purple_low_H = pt.get<float>("others_purple_low_H");
+        others_purple_high_H = pt.get<float>("others_purple_high_H");
+        others_green_low_H = pt.get<float>("others_green_low_H");
+        others_green_high_H = pt.get<float>("others_green_high_H");
+        others_blue_low_H = pt.get<float>("others_blue_low_H");
+        others_blue_high_H = pt.get<float>("others_blue_high_H");
+
+        // SETTINGS
+        param_plane_count_points = pt.get<int>("param_plane_count_points");
     }
 };
 
 int main(int argc, char **argv) {
 
+    std::cout << argv[0] << std::endl;
     ros::init(argc, argv, NODE_NAME);
 
     ObjectClassifier classifier(HZ);

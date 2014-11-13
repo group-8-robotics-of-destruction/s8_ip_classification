@@ -1,0 +1,28 @@
+// Configuration options
+{
+    // SPHERES
+    "circle_red_low_H"          : "0.03",
+    "circle_red_high_H"         : "0.85",
+    "circle_yellow_low_H"       : "0.03",
+    "circle_yellow_high_H"      : "0.20",
+    // QUBE
+    "cube_red_low_H"            : "0.03",
+    "cube_red_high_H"           : "0.80",
+    "cube_yellow_low_H"         : "0.03",
+    "cube_yellow_high_H"        : "0.15",
+    "cube_green_low_H"          : "0.15",
+    "cube_green_high_H"         : "0.40",
+    "cube_blue_low_H"           : "0.40",
+    "cube_blue_high_H"          : "0.80",
+    // OTHERS
+    "others_orange_low_H"       : "0.10",
+    "others_orange_high_H"      : "0.93",
+    "others_purple_low_H"       : "0.70",
+    "others_purple_high_H"      : "0.93",
+    "others_green_low_H"        : "0.10",
+    "others_green_high_H"       : "0.40",
+    "others_blue_low_H"         : "0.40",
+    "others_blue_high_H"        : "0.70",
+    //SETTINGS
+    "param_plane_count_points"  : "50"
+}
