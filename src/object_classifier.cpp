@@ -1,5 +1,6 @@
 #include <ros/ros.h>
 #include <s8_common_node/Node.h>
+#include <s8_msgs/Classification.h>
 // PCL specific includes
 #include <pcl/io/pcd_io.h>
 #include <sensor_msgs/PointCloud2.h>
@@ -39,6 +40,7 @@
 #define TOPIC_POINT_CLOUD   		"/s8/detectedObject"
 #define TOPIC_RGB_IMAGE             "/camera/rgb/image_rect_color"
 #define TOPIC_EXTRACTED_OBJECTS		"/s8/modifiedObject"
+#define TOPIC_OBJECT_TYPE           "/s8/Classification/type"  
 #define CONFIG_DOC                  "catkin_ws/src/s8_ip_classification/parameters/parameters.json"
 
 
@@ -55,6 +57,7 @@ class ObjectClassifier : public s8::Node
     ros::Subscriber point_cloud_subscriber;
     ros::Publisher point_cloud_publisher;
     ros::Subscriber rgb_image_subscriber;
+    ros::Publisher object_type_publisher;
     pcl::PointCloud<PointT>::Ptr cloud;
     cv_bridge::CvImagePtr rgb_image;
 
@@ -77,6 +80,7 @@ public:
         point_cloud_subscriber = nh.subscribe(TOPIC_POINT_CLOUD, BUFFER_SIZE, &ObjectClassifier::point_cloud_callback, this);
         point_cloud_publisher  = nh.advertise<sensor_msgs::PointCloud2> (TOPIC_EXTRACTED_OBJECTS, BUFFER_SIZE);
         rgb_image_subscriber   = nh.subscribe(TOPIC_RGB_IMAGE, BUFFER_SIZE, &ObjectClassifier::rgb_image_callback, this);
+        object_type_publisher  = nh.advertise<s8_msgs::Classification> (TOPIC_OBJECT_TYPE, BUFFER_SIZE);
         cloud = pcl::PointCloud<PointT>::Ptr (new pcl::PointCloud<PointT>);
         cloudInitialized    = false;
         rgbImageInitialized = false;
@@ -90,71 +94,122 @@ public:
 
     void updateClass()
     {
-        if ( cloudInitialized == false)
+        s8_msgs::Classification classType;
+        classType.type = 0;
+        classType.name = "No Object";
+        
+        if ( cloudInitialized == false || rgbImageInitialized == false)
         {
-            //ROS_INFO("No OBJECT FOUND");
-            return;
+            ROS_INFO("No OBJECT FOUND");
         }
-        if(rgbImageInitialized == false) return;
-
-        if (recognizeSphereObject(cloud))
+        else if (recognizeSphereObject(cloud))
         {
-            findCircleClass();
+            classType = findCircleClass();
         }
         else if (recognizePlaneObject(cloud))
         {
-            findCubeClass();
+            classType = findCubeClass();
         }
         else 
         {
-            findOthersClass();
+            classType = findOthersClass();
         }
         
-        
         cloudPublish(cloud);
+        typePublish(classType);
         cloudInitialized = false;
     }
 
 private:
 
-    void findCircleClass()
+    s8_msgs::Classification findCircleClass()
     {
+        s8_msgs::Classification classType;
         float H = 0.0, S = 0.0, V = 0.0;
         getColors(cloud, &H, &S, &V);
         if(H > circle_red_high_H || H < circle_red_low_H)
+        {
             ROS_INFO("Seeing red circle");
+            classType.type = 1;
+            classType.name = "Red Circle";
+        }
         else if (H < circle_yellow_high_H && H > circle_yellow_low_H)
+        {
             ROS_INFO("Seeing yellow circle");
-        else
+            classType.type = 2;
+            classType.name = "Yellow Circle";   
+        }
+        /*else
+        {
             ROS_INFO("Seeing something else");
+            classType.type = 0;
+            classType.name = "No Object";   
+        }*/
+        return classType;
     }
 
-    void findCubeClass()
+    s8_msgs::Classification findCubeClass()
     {
+        s8_msgs::Classification classType;
         float H = 0.0, S = 0.0, V = 0.0;
         getColors(cloud, &H, &S, &V);
         if(H > cube_red_high_H || H < cube_red_low_H)
+        {
             ROS_INFO("Seeing red cube");
+            classType.type = 3;
+            classType.name = "Red Cube";   
+        }
         else if (H < cube_yellow_high_H && H > cube_yellow_low_H)
+        {
             ROS_INFO("Seeing yellow cube");
+            classType.type = 4;
+            classType.name = "Yellow Cube";
+        }
         else if (H < cube_green_high_H && H > cube_green_low_H)
+        {
             ROS_INFO("Seeing green cube");
-        else if (H < cube_blue_high_H && H > cube_blue_low_H)
+            classType.type = 5;
+            classType.name = "Green Cube";
+        }
+        else //(H < cube_blue_high_H && H > cube_blue_low_H)
+        {
             ROS_INFO("Seeing blue cube");
+            classType.type = 6;
+            classType.name = "Blue Cube";
+        }
+        return classType;
     }
 
-    void findOthersClass()
+    s8_msgs::Classification findOthersClass()
     {
+        s8_msgs::Classification classType;
         float H = 0.0, S = 0.0, V = 0.0;
         getColors(cloud, &H, &S, &V);
         if(H > others_orange_high_H || H < others_orange_low_H)
+        {
             ROS_INFO("Seeing orange star");
+            classType.type = 7;
+            classType.name = "Orange Star";
+        }
         else if (H < others_purple_high_H && H > others_purple_low_H)
+        {
             ROS_INFO("Seeing purple cross");
+            classType.type = 8;
+            classType.name = "Purple Cross";
+        }
         else if (H < cube_green_high_H && H > cube_green_low_H)
+        {
             ROS_INFO("Seeing green cylinder");
-        else if (H < cube_blue_high_H && H > cube_blue_low_H)
+            classType.type = 9;
+            classType.name = "Green Cylinder";
+        }
+        else //(H < cube_blue_high_H && H > cube_blue_low_H)
+        {
             ROS_INFO("Seeing blue triangle");
+            classType.type = 10;
+            classType.name = "Blue Triangle";
+        }
+        return classType;
     }
 
     void getColors(pcl::PointCloud<PointT>::Ptr cloud_color, float *H, float *S, float *V)
@@ -291,6 +346,9 @@ private:
                     ROS_INFO("3 PLANES");
                     return false;
                 }
+            }
+            else{
+                ROS_INFO("1 PLANE");
             }
             return true;
         }
@@ -449,6 +507,11 @@ private:
         sensor_msgs::PointCloud2 output;
         pcl::toROSMsg(*cloud_pub, output);
         point_cloud_publisher.publish (output);
+    }
+
+    void typePublish(s8_msgs::Classification classType)
+    {
+        object_type_publisher.publish(classType);
     }
 
     void add_params()
