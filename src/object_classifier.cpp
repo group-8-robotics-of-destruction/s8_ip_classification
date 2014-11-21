@@ -40,7 +40,7 @@
 #define TOPIC_POINT_CLOUD   		"/s8/detectedObject"
 #define TOPIC_RGB_IMAGE             "/camera/rgb/image_rect_color"
 #define TOPIC_EXTRACTED_OBJECTS		"/s8/modifiedObject"
-#define TOPIC_OBJECT_TYPE           "/s8/Classification/type"  
+#define TOPIC_OBJECT_TYPE           "/s8/Classification/type"
 #define CONFIG_DOC                  "catkin_ws/src/s8_ip_classification/parameters/parameters.json"
 
 
@@ -97,7 +97,7 @@ public:
         s8_msgs::Classification classType;
         classType.type = 0;
         classType.name = "No Object";
-        
+
         if ( cloudInitialized == false || rgbImageInitialized == false)
         {
             ROS_INFO("No OBJECT FOUND");
@@ -110,11 +110,11 @@ public:
         {
             classType = findCubeClass();
         }
-        else 
+        else
         {
             classType = findOthersClass();
         }
-        
+
         cloudPublish(cloud);
         typePublish(classType);
         cloudInitialized = false;
@@ -137,13 +137,13 @@ private:
         {
             ROS_INFO("Seeing yellow circle");
             classType.type = 2;
-            classType.name = "Yellow Circle";   
+            classType.name = "Yellow Circle";
         }
         /*else
         {
             ROS_INFO("Seeing something else");
             classType.type = 0;
-            classType.name = "No Object";   
+            classType.name = "No Object";
         }*/
         return classType;
     }
@@ -157,7 +157,7 @@ private:
         {
             ROS_INFO("Seeing red cube");
             classType.type = 3;
-            classType.name = "Red Cube";   
+            classType.name = "Red Cube";
         }
         else if (H < cube_yellow_high_H && H > cube_yellow_low_H)
         {
@@ -279,7 +279,7 @@ private:
 
         pcl::ExtractIndices<PointT> extract;
         pcl::NormalEstimation<PointT, pcl::Normal> ne;
-        pcl::SACSegmentationFromNormals<PointT, pcl::Normal> seg; 
+        pcl::SACSegmentationFromNormals<PointT, pcl::Normal> seg;
 
         // Estimate point normals
         ne.setSearchMethod (tree);
@@ -341,7 +341,7 @@ private:
                 float angle1 = getAngle(coeffMatrix[0],coeffMatrix[1]);
                 float angle2 = getAngle(coeffMatrix[0],coeffMatrix[2]);
                 float angle3 = getAngle(coeffMatrix[1],coeffMatrix[2]);
-                if (abs(angle1 - 90) > 10 || abs(angle2 - 90) > 10 || abs(angle3 - 90) > 10 )
+                if (!(abs(angle1 - 90) < 10 || abs(angle2 - 90) < 10 || abs(angle3 - 90) < 10))
                 {
                     ROS_INFO("3 PLANES");
                     return false;
@@ -368,7 +368,7 @@ private:
 
         pcl::ExtractIndices<PointT> extract;
         pcl::NormalEstimation<PointT, pcl::Normal> ne;
-        pcl::SACSegmentationFromNormals<PointT, pcl::Normal> seg; 
+        pcl::SACSegmentationFromNormals<PointT, pcl::Normal> seg;
 
         // Estimate point normals
         ne.setSearchMethod (tree);
@@ -386,7 +386,7 @@ private:
         if (nr_points < 50){
             return false;
         }
-        
+
         //seg.setInputCloud (cloud);
         ne.setInputCloud (cloud_seg);
         ne.compute (*cloud_normals);
@@ -423,7 +423,7 @@ private:
                      100, 30, 1, 30 // change the last two parameters
                                     // (min_radius & max_radius) to detect larger circles
                      );
-        
+
         for( size_t i = 0; i < circles.size(); i++ )
         {
             Vec3i c = circles[i];
