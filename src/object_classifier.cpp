@@ -1,6 +1,7 @@
 #include <ros/ros.h>
 #include <s8_common_node/Node.h>
 #include <s8_msgs/Classification.h>
+#include <s8_msgs/DistPose.h>
 // PCL specific includes
 #include <pcl/io/pcd_io.h>
 #include <sensor_msgs/PointCloud2.h>
@@ -41,6 +42,8 @@
 #define TOPIC_RGB_IMAGE             "/camera/rgb/image_rect_color"
 #define TOPIC_EXTRACTED_OBJECTS		"/s8/modifiedObject"
 #define TOPIC_OBJECT_TYPE           "/s8/Classification/type"
+#define TOPIC_RECIEVED_DISTPOSE     "/s8/ip/detection/distPose"
+#define TOPIC_SENT_DISTPOSE         "/s8/ip/classification/distPose"
 #define CONFIG_DOC                  "catkin_ws/src/s8_ip_classification/parameters/parameters.json"
 
 
@@ -58,11 +61,15 @@ class ObjectClassifier : public s8::Node
     ros::Publisher point_cloud_publisher;
     ros::Subscriber rgb_image_subscriber;
     ros::Publisher object_type_publisher;
+    ros::Subscriber object_distPose_subscriber;
+    ros::Publisher object_distPose_publisher;
+
     pcl::PointCloud<PointT>::Ptr cloud;
     cv_bridge::CvImagePtr rgb_image;
-
+    s8_msgs::DistPose distPose;
     bool cloudInitialized;
     bool rgbImageInitialized;
+    bool distPoseInitialized;
 
     float circle_red_low_H, circle_red_high_H, circle_yellow_low_H, circle_yellow_high_H;
     float cube_red_low_H, cube_red_high_H, cube_yellow_low_H, cube_yellow_high_H;
@@ -81,9 +88,12 @@ public:
         point_cloud_publisher  = nh.advertise<sensor_msgs::PointCloud2> (TOPIC_EXTRACTED_OBJECTS, BUFFER_SIZE);
         rgb_image_subscriber   = nh.subscribe(TOPIC_RGB_IMAGE, BUFFER_SIZE, &ObjectClassifier::rgb_image_callback, this);
         object_type_publisher  = nh.advertise<s8_msgs::Classification> (TOPIC_OBJECT_TYPE, BUFFER_SIZE);
+        object_distPose_subscriber = nh.subscribe(TOPIC_RECIEVED_DISTPOSE, BUFFER_SIZE, &ObjectClassifier::object_distPose_callback, this);
+        object_distPose_publisher  = nh.advertise<s8_msgs::DistPose> (TOPIC_SENT_DISTPOSE, BUFFER_SIZE);
         cloud = pcl::PointCloud<PointT>::Ptr (new pcl::PointCloud<PointT>);
         cloudInitialized    = false;
         rgbImageInitialized = false;
+        distPoseInitialized = false;
 
         cv::namedWindow(OPENCV_WINDOW);
     }
@@ -115,8 +125,12 @@ public:
             classType = findOthersClass();
         }
 
+        if (classType.type == 0)
+            distPose.dist = -1;
+
         cloudPublish(cloud);
         typePublish(classType);
+        distPosePublish(distPose);
         cloudInitialized = false;
     }
 
@@ -488,6 +502,13 @@ private:
         cloudInitialized = true;
     }
 
+    void object_distPose_callback(s8_msgs::DistPose distPoseIn)
+    {
+        distPose.pose = distPoseIn.pose;
+        distPose.dist = distPoseIn.dist;
+        distPoseInitialized = true;
+    }
+
     void rgb_image_callback(const sensor_msgs::ImageConstPtr& msgColor)
     {
         try
@@ -512,6 +533,12 @@ private:
     void typePublish(s8_msgs::Classification classType)
     {
         object_type_publisher.publish(classType);
+    }
+
+    void distPosePublish(s8_msgs::DistPose distPose)
+    {
+        object_distPose_publisher.publish(distPose);
+        ROS_INFO("Distance: %f, Angle: %f", distPose.dist, distPose.pose);
     }
 
     void add_params()
