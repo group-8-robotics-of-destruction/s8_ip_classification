@@ -44,7 +44,7 @@
 #define TOPIC_OBJECT_TYPE           "/s8/Classification/type"
 #define TOPIC_RECIEVED_DISTPOSE     "/s8/ip/detection/distPose"
 #define TOPIC_SENT_DISTPOSE         "/s8/ip/classification/distPose"
-#define CONFIG_DOC                  "catkin_ws/src/s8_ip_classification/parameters/parameters.json"
+#define CONFIG_DOC                  "/home/ras/catkin_ws/src/s8_ip_classification/parameters/parameters.json"
 
 
 static const std::string OPENCV_WINDOW = "Image window";
@@ -95,11 +95,11 @@ public:
         rgbImageInitialized = false;
         distPoseInitialized = false;
 
-        cv::namedWindow(OPENCV_WINDOW);
+        //cv::namedWindow(OPENCV_WINDOW);
     }
     ~ObjectClassifier()
     {
-        cv::destroyWindow(OPENCV_WINDOW);
+        //cv::destroyWindow(OPENCV_WINDOW);
     }
 
     void updateClass()
