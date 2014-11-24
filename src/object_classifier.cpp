@@ -112,6 +112,10 @@ public:
         {
             ROS_INFO("No OBJECT FOUND");
         }
+        else if (isWhite(cloud))
+        {
+            ROS_INFO("WHITE OBJECT, IGNORED");
+        }
         else if (recognizeSphereObject(cloud))
         {
             classType = findCircleClass();
@@ -135,6 +139,16 @@ public:
     }
 
 private:
+
+    bool isWhite(pcl::PointCloud<PointT>::Ptr cloud_white)
+    {
+        float H = 0.0, S = 0.0, V = 0.0;
+        getColors(cloud_white, &H, &S, &V);
+        if ((H < 0.1 || H > 0.9) && S < 0.1 && V > 0.9 )
+            return true;
+        else
+            return false;
+    }
 
     s8_msgs::Classification findCircleClass()
     {
