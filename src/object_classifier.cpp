@@ -59,16 +59,16 @@ class ObjectClassifier : public s8::Node
 
     ros::Subscriber point_cloud_subscriber;
     ros::Publisher point_cloud_publisher;
-    ros::Subscriber rgb_image_subscriber;
+    //ros::Subscriber rgb_image_subscriber;
     ros::Publisher object_type_publisher;
     ros::Subscriber object_distPose_subscriber;
     ros::Publisher object_distPose_publisher;
 
     pcl::PointCloud<PointT>::Ptr cloud;
-    cv_bridge::CvImagePtr rgb_image;
+    //cv_bridge::CvImagePtr rgb_image;
     s8_msgs::DistPose distPose;
     bool cloudInitialized;
-    bool rgbImageInitialized;
+    //bool rgbImageInitialized;
     bool distPoseInitialized;
 
     float circle_red_low_H, circle_red_high_H, circle_yellow_low_H, circle_yellow_high_H;
@@ -86,13 +86,13 @@ public:
         //printParams();
         point_cloud_subscriber = nh.subscribe(TOPIC_POINT_CLOUD, BUFFER_SIZE, &ObjectClassifier::point_cloud_callback, this);
         point_cloud_publisher  = nh.advertise<sensor_msgs::PointCloud2> (TOPIC_EXTRACTED_OBJECTS, BUFFER_SIZE);
-        rgb_image_subscriber   = nh.subscribe(TOPIC_RGB_IMAGE, BUFFER_SIZE, &ObjectClassifier::rgb_image_callback, this);
+        //rgb_image_subscriber   = nh.subscribe(TOPIC_RGB_IMAGE, BUFFER_SIZE, &ObjectClassifier::rgb_image_callback, this);
         object_type_publisher  = nh.advertise<s8_msgs::Classification> (TOPIC_OBJECT_TYPE, BUFFER_SIZE);
         object_distPose_subscriber = nh.subscribe(TOPIC_RECIEVED_DISTPOSE, BUFFER_SIZE, &ObjectClassifier::object_distPose_callback, this);
         object_distPose_publisher  = nh.advertise<s8_msgs::DistPose> (TOPIC_SENT_DISTPOSE, BUFFER_SIZE);
         cloud = pcl::PointCloud<PointT>::Ptr (new pcl::PointCloud<PointT>);
         cloudInitialized    = false;
-        rgbImageInitialized = false;
+        //rgbImageInitialized = false;
         distPoseInitialized = false;
 
         //cv::namedWindow(OPENCV_WINDOW);
@@ -108,7 +108,7 @@ public:
         classType.type = 0;
         classType.name = "No Object";
 
-        if ( cloudInitialized == false || rgbImageInitialized == false)
+        if ( cloudInitialized == false)// || rgbImageInitialized == false)
         {
             ROS_INFO("No OBJECT FOUND");
         }
@@ -269,29 +269,6 @@ private:
         B_avg = B_acc / size;
         RGB2HSV((float)R_avg, (float)G_avg, (float)B_avg, *H, *S, *V);
         ROS_INFO("H: %f, S: %f, V: %f", *H, *S, *V);
-        /*
-        if (H_avg > 0.2 && H_avg < 0.4)
-            ROS_INFO("GREEN CUBE");
-        else if (H_avg > 0.4 && H_avg < 0.7)
-            ROS_INFO("BLUE CUBE");
-        else if (H_avg < 0.2 || H_avg > 0.7){
-            if (H_avg < 0.18 && S_avg > 0.5 && V_avg > 0.4){
-                ROS_INFO("ORANGE STAR");}
-            else if (H_avg > 0.7 && S_avg > 0.25 && V_avg > 0.4){
-            ROS_INFO("PURPLE CROSS");}
-            else
-            ROS_INFO("RED");}
-        else
-            ROS_INFO("OTHER COLOR");
-        //ROS_INFO("H_avg: %f, S_avg: %f, V_avg: %f", H_avg, S_avg, V_avg);
-        /*
-        if (R_avg > G_avg && R_avg > B_avg)
-            //ROS_INFO("RED");
-        else if (G_avg > R_avg && G_avg > B_avg)
-            //ROS_INFO("GREEN");
-        else if (B_avg > G_avg && B_avg > R_avg)
-            //ROS_INFO("BLUE");*/
-        //ROS_INFO("R_avg: %lf G_avg: %lf B_avg: %lf R_acc: %lf G_acc: %lf B_acc: %lf cloud_size: %d", R_avg, G_avg, B_avg, R_acc, G_acc, B_acc, size);
     }
 
     bool recognizePlaneObject(pcl::PointCloud<PointT>::Ptr cloud_seg)
@@ -426,7 +403,7 @@ private:
         else
             return false;
     }
-
+/*
     bool isCircle()
     {
         if(rgbImageInitialized == false) return false;
@@ -465,7 +442,7 @@ private:
         else
             return false;
     }
-
+*/
     static void RGB2HSV(float r, float g, float b, float &h, float &s, float &v)
     {
         float K = 0.f;
@@ -496,7 +473,7 @@ private:
         float angleRad      = acos(dotproduct/(sqrt(len1)*sqrt(len2)));
         return angleRad*180/3.1415;
     }
-
+/*
     void colorPreProcess(cv::Mat *HSVImage, cv::Mat *RGBImage)
     {
         cv::Mat tempHSV, tempRGB, frame;
@@ -509,7 +486,7 @@ private:
         addWeighted(*RGBImage, 1.6, frame, -0.5, 0, *RGBImage);
         //GaussianBlur( *RGBImage, *RGBImage, Size(5, 5), 1, 1 );
     }
-
+*/
     void point_cloud_callback(const sensor_msgs::PointCloud2ConstPtr& cloud_msg)
     {
         pcl::fromROSMsg (*cloud_msg, *cloud);
@@ -522,7 +499,7 @@ private:
         distPose.dist = distPoseIn.dist;
         distPoseInitialized = true;
     }
-
+/*
     void rgb_image_callback(const sensor_msgs::ImageConstPtr& msgColor)
     {
         try
@@ -536,7 +513,7 @@ private:
         }
         rgbImageInitialized = true;
     }
-
+*/
     void cloudPublish(pcl::PointCloud<PointT>::Ptr cloud_pub)
     {
         sensor_msgs::PointCloud2 output;
