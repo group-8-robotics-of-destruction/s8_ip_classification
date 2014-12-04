@@ -34,7 +34,7 @@
 
 
 // DEFINITIONS
-#define HZ                  10
+#define HZ                  5
 #define BUFFER_SIZE         1
 
 #define NODE_NAME           		"s8_object_classification_node"
@@ -112,10 +112,10 @@ public:
         {
             ROS_INFO("No OBJECT FOUND");
         }
-        else if (isWhite(cloud))
+        /*else if (isWhite(cloud))
         {
             ROS_INFO("WHITE OBJECT, IGNORED");
-        }
+        }*/
         else if (recognizeSphereObject(cloud))
         {
             classType = findCircleClass();
@@ -388,7 +388,7 @@ private:
         seg.setRadiusLimits (0.010, 0.05);
 
         int i = 0, nr_points = (int) cloud_seg->points.size ();
-        if (nr_points < 50){
+        if (nr_points < 40){
             return false;
         }
 
