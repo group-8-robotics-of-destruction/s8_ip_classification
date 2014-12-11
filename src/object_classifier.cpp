@@ -34,7 +34,7 @@
 
 
 // DEFINITIONS
-#define HZ                  5
+#define HZ                  10
 #define BUFFER_SIZE         1
 
 #define NODE_NAME           		"s8_object_classification_node"
@@ -65,6 +65,7 @@ class ObjectClassifier : public s8::Node
     ros::Publisher object_distPose_publisher;
 
     pcl::PointCloud<PointT>::Ptr cloud;
+    pcl::PointCloud<PointT>::Ptr cloudCircle;
     //cv_bridge::CvImagePtr rgb_image;
     s8_msgs::DistPose distPose;
     bool cloudInitialized;
@@ -91,6 +92,7 @@ public:
         object_distPose_subscriber = nh.subscribe(TOPIC_RECIEVED_DISTPOSE, BUFFER_SIZE, &ObjectClassifier::object_distPose_callback, this);
         object_distPose_publisher  = nh.advertise<s8_msgs::DistPose> (TOPIC_SENT_DISTPOSE, BUFFER_SIZE);
         cloud = pcl::PointCloud<PointT>::Ptr (new pcl::PointCloud<PointT>);
+        cloudCircle = pcl::PointCloud<PointT>::Ptr (new pcl::PointCloud<PointT>);
         cloudInitialized    = false;
         //rgbImageInitialized = false;
         distPoseInitialized = false;
@@ -104,30 +106,35 @@ public:
 
     void updateClass()
     {
+
         s8_msgs::Classification classType;
         classType.type = 0;
         classType.name = "No Object";
-
+        distPose.size = cloud->points.size();
         if ( cloudInitialized == false)// || rgbImageInitialized == false)
         {
             ROS_INFO("No OBJECT FOUND");
+        }
+        else{
+            cloudInitialized = false;
+            if (recognizeSphereObject(cloudCircle))
+            {
+                classType = findCircleClass();
+            }
+            else if (recognizePlaneObject(cloud))
+            {
+                classType = findCubeClass();
+            }
+            else
+            {
+                classType = findOthersClass();
+            }    
         }
         /*else if (isWhite(cloud))
         {
             ROS_INFO("WHITE OBJECT, IGNORED");
         }*/
-        else if (recognizeSphereObject(cloud))
-        {
-            classType = findCircleClass();
-        }
-        else if (recognizePlaneObject(cloud))
-        {
-            classType = findCubeClass();
-        }
-        else
-        {
-            classType = findOthersClass();
-        }
+        
 
         if (classType.type == 0)
             distPose.dist = -1;
@@ -135,7 +142,6 @@ public:
         cloudPublish(cloud);
         typePublish(classType);
         distPosePublish(distPose);
-        cloudInitialized = false;
     }
 
 private:
@@ -490,6 +496,7 @@ private:
     void point_cloud_callback(const sensor_msgs::PointCloud2ConstPtr& cloud_msg)
     {
         pcl::fromROSMsg (*cloud_msg, *cloud);
+        *cloudCircle = *cloud;
         cloudInitialized = true;
     }
 
